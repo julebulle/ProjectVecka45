@@ -4,7 +4,7 @@ public class SpawningArrow : MonoBehaviour
 {
     private float spawnTimer;
     [SerializeField] private GameObject spawningArrowPrefab;
-    int dir
+    int dir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
