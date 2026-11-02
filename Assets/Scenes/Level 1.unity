@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9980c48ee8e7c2247ab1612f672ed7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnTimer: 0
   spawningArrowPrefab: {fileID: 7536524677101444240, guid: e2566574614bef34995e895c9a8d9af4, type: 3}
 --- !u!4 &690129011
 Transform:
@@ -347,6 +348,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1705247836744058117, guid: e2566574614bef34995e895c9a8d9af4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489451155222430195, guid: e2566574614bef34995e895c9a8d9af4, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7536524677101444240, guid: e2566574614bef34995e895c9a8d9af4, type: 3}
