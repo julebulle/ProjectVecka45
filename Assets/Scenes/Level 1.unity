@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcaa7f54f2048b24282a46de002ba637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 0}
+  test: {fileID: 11400000, guid: b654c9b0e9db21d4995798437b8e42b4, type: 2}
   notePrefab: {fileID: 5284180459892253086, guid: 196161455f558b740972b23c9994e2dd, type: 3}
 --- !u!1 &566663493
 GameObject:

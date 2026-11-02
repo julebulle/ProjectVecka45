@@ -5,8 +5,12 @@ public class Note : MonoBehaviour
     [SerializeField]List<DirectionEnum> directions;
     [SerializeField]DirectionEnum direction;
     Vector3 directionValue;
-
     public Transform targetPosition;
+    public float speed;
+    public List<Sprite> sprites;
+
+    public int directionIndex;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,9 +18,13 @@ public class Note : MonoBehaviour
         {
             plates[i] = GameObject.Find(directions[i].ToString()).transform;
         }*/
-        direction = directions[Random.Range(0,directions.Count)];
+        directionIndex = Random.Range(0, directions.Count);
+
+        direction = directions[directionIndex];
 
         targetPosition = GameObject.Find(direction.ToString()).transform;
+
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[directionIndex];
 
         if(direction == DirectionEnum.Up)
         {
@@ -41,4 +49,5 @@ public class Note : MonoBehaviour
     {
         transform.position += directionValue * Time.deltaTime;
     }
+
 }
