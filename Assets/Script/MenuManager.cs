@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,8 +15,19 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    public void OpenLevelMenu()
+    void CloseMenu(GameObject menuToClose)
     {
+        menuToClose.SetActive(false);
+    }
 
+    public void OpenMenu(GameObject menuToOpen, GameObject currentMenu)
+    {
+        CloseMenu(currentMenu);
+
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
