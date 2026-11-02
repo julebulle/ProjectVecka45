@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+
+    public GameObject currentMenu;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,19 +18,25 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    void CloseMenu(GameObject menuToClose)
+    public void CloseMenu(GameObject menuToClose)
     {
         menuToClose.SetActive(false);
     }
 
-    public void OpenMenu(GameObject menuToOpen, GameObject currentMenu)
+    public void OpenMenu(GameObject menuToOpen)
     {
         CloseMenu(currentMenu);
-
+        currentMenu = menuToOpen;
+        menuToOpen.SetActive(true);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void EnterLevel(int LevelIndex)
+    {
+        SceneManager.LoadScene(LevelIndex);
     }
 }
