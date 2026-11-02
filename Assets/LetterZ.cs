@@ -13,16 +13,16 @@ public class LetterZ : MonoBehaviour
     void Start()
     {
         spawningArrow = FindAnyObjectByType<SpawningArrow>();
-        dirDeterm = Random.Range(0, 2);
+        dirDeterm = Random.Range(0, 2); // determines if it's being shor vertically or horizontally
         if (dirDeterm == 0)
         {
-            dirX = Random.Range(-1, 2);
+            dirX = Random.Range(-1, 2); // determines left or right
             dirY = 0;
         }
         else if (dirDeterm == 1)
         {
             dirX = 0;
-            dirY = Random.Range(-1, 2);
+            dirY = Random.Range(-1, 2); // determines up or down
         }
     }
 
@@ -31,7 +31,7 @@ public class LetterZ : MonoBehaviour
     {
         if (dirX == 0 && dirY == 0)
         {
-            dirY = 1;
+            dirY = 1; // if both are 0 they go up
         }
         transform.position += new Vector3(dirX, dirY, 0) * speed * Time.deltaTime;
 
