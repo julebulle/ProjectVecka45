@@ -16,14 +16,50 @@ public class NoteSpawner : MonoBehaviour
     public KeyCode downButton;
     public KeyCode leftButton;
     public KeyCode rightButton;
+    public KeyCode upButton0;
+    public KeyCode downButton0;
+    public KeyCode leftButton0;
+    public KeyCode rightButton0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         SpawnNote();
+        
     }
-
+    public  bool CheckInputDirection(DirectionEnum aDirection)
+    {
+        if(aDirection == DirectionEnum.Up)
+        {
+            if (Input.GetKeyDown(upButton) || Input.GetKeyDown(upButton0) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                return true;
+            }
+        }
+        if (aDirection == DirectionEnum.Down)
+        {
+            if (Input.GetKeyDown(downButton) || Input.GetKeyDown(downButton0) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                return true;
+            }
+        }
+        if (aDirection == DirectionEnum.Left)
+        {
+            if (Input.GetKeyDown(leftButton) || Input.GetKeyDown(leftButton0) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                return true;
+            }
+        }
+        if (aDirection == DirectionEnum.Right)
+        {
+            if (Input.GetKeyDown(rightButton) || Input.GetKeyDown(rightButton0) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,28 +71,28 @@ public class NoteSpawner : MonoBehaviour
 
         //When you 
         #region
-        if (Input.GetKeyDown(upButton))
+        if (CheckInputDirection(DirectionEnum.Up))
         {
             if (upList.Count > 0)
             {
                 upList[0].CheckTiming();
             }
         }
-        else if (Input.GetKeyDown(downButton))
+        else if (CheckInputDirection(DirectionEnum.Down))
         {
             if(downList.Count > 0)
             {
                 downList[0].CheckTiming();
             }
         }
-        else if (Input.GetKeyDown(leftButton))
+        else if (CheckInputDirection(DirectionEnum.Left))
         {
             if(leftList.Count > 0)
             {
                 leftList[0].CheckTiming();
             }
         }
-        else if (Input.GetKeyDown(rightButton))
+        else if (CheckInputDirection(DirectionEnum.Right))
         {
             if(rightList.Count > 0)
             {

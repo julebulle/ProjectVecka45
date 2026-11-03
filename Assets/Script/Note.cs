@@ -58,6 +58,7 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         transform.position += directionValue * speed * Time.deltaTime;
 
         accuracy = (transform.position.x - targetPosition.position.x) + (transform.position.y - targetPosition.position.y);
@@ -65,7 +66,7 @@ public class Note : MonoBehaviour
         if (transform.position.x < -10.16 || transform.position.x > 10.16)
         {
             CheckTiming();
-          Destroy(gameObject);
+            Destroy(gameObject);
         }
             
 
@@ -106,7 +107,7 @@ public class Note : MonoBehaviour
     {
         Debug.Log(GetAccuracyEnum().ToString());
 
-        spawner.RemoveNote(direction);
+        //spawner.RemoveNote(direction);
 
 
         scoreManager.AddToScore(GetAccuracyEnum());
