@@ -359,14 +359,10 @@ MonoBehaviour:
   downList: []
   leftList: []
   rightList: []
-  upButton: 106
-  downButton: 102
-  leftButton: 100
-  rightButton: 107
-  upButton0: 0
-  downButton0: 0
-  leftButton0: 0
-  rightButton0: 0
+  upButton: {fileID: 1119523909470510527, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  downButton: {fileID: -205383976727617744, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  leftButton: {fileID: 3442762776565366673, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  rightButton: {fileID: 3109615302570787096, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &557090001
 GameObject:
   m_ObjectHideFlags: 0

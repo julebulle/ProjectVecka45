@@ -107,8 +107,10 @@ public class Note : MonoBehaviour
     {
         Debug.Log(GetAccuracyEnum().ToString());
 
-        scoreManager.AddToScore(GetAccuracyEnum());
+        
 
+        scoreManager.AddToScore(GetAccuracyEnum());
+        
         directionValue = Vector3.down;
 
 
