@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 public class Note : MonoBehaviour
 {
     [SerializeField]List<DirectionEnum> directions;
     [SerializeField]DirectionEnum direction;
     Vector3 directionValue;
+
+    bool used;
     public Transform targetPosition;
     public float speed;
     public List<Sprite> sprites;
@@ -61,6 +64,24 @@ public class Note : MonoBehaviour
 
         accuracy = (transform.position.x - targetPosition.position.x) + (transform.position.y - targetPosition.position.y);
 
+        if (transform.position.x < -10.16 || transform.position.x > 10.16)
+        {
+            if (!used)
+            {
+                CheckTiming();
+            }
+            Destroy(gameObject);
+        }
+            
+
+        else if (transform.position.y > 6.3 || transform.position.y < -6.3)
+        {
+            if (!used)
+            {
+                CheckTiming();
+            }
+            Destroy(gameObject);
+        }
     }
 
     public AccuracyEnum GetAccuracyEnum()
@@ -95,7 +116,12 @@ public class Note : MonoBehaviour
 
         spawner.RemoveNote(direction);
 
-        Destroy(gameObject);
+
         scoreManager.AddToScore(GetAccuracyEnum());
+
+        directionValue = Vector3.down;
+
+        used = true;
+        speed = 20;
     }
 }
