@@ -2,6 +2,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class ScoreManager : MonoBehaviour
     float currentStreak;
     float addedScore;
 
+    public Image powerUp;
+    const int powerUpIndicatorSize = 105;
+
+    public 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +26,7 @@ public class ScoreManager : MonoBehaviour
         scoreMultiplier = 1;
         currentStreak = 0;
         scoreText = FindAnyObjectByType<TMP_Text>();
+        powerUp.rectTransform.sizeDelta = new Vector2(powerUpIndicatorSize * currentStreak, powerUpIndicatorSize);
     }
 
     // Update is called once per frame

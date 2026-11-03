@@ -96,7 +96,6 @@ public class Note : MonoBehaviour
         spawner.RemoveNote(direction);
 
         Destroy(gameObject);
-
         scoreManager.AddToScore(GetAccuracyEnum());
     }
 }
