@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-
+using UnityEngine.InputSystem;
 public class NoteSpawner : MonoBehaviour
 {
     public TimelineAsset timeline;
@@ -12,14 +12,10 @@ public class NoteSpawner : MonoBehaviour
     public List<Note> leftList;
     public List<Note> rightList;
 
-    public KeyCode upButton;
-    public KeyCode downButton;
-    public KeyCode leftButton;
-    public KeyCode rightButton;
-    public KeyCode upButton0;
-    public KeyCode downButton0;
-    public KeyCode leftButton0;
-    public KeyCode rightButton0;
+    public InputActionReference upButton;
+    public InputActionReference downButton;
+    public InputActionReference leftButton;
+    public InputActionReference rightButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,32 +24,32 @@ public class NoteSpawner : MonoBehaviour
         SpawnNote();
         
     }
-    public  bool CheckInputDirection(DirectionEnum aDirection)
+    public  bool CheckInputDirection(DirectionEnum Direction)
     {
-        if(aDirection == DirectionEnum.Up)
+        if(Direction == DirectionEnum.Up)
         {
-            if (Input.GetKeyDown(upButton) || Input.GetKeyDown(upButton0) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (upButton.action.WasPressedThisFrame())
             {
                 return true;
             }
         }
-        if (aDirection == DirectionEnum.Down)
+        if (Direction == DirectionEnum.Down)
         {
-            if (Input.GetKeyDown(downButton) || Input.GetKeyDown(downButton0) || Input.GetKeyDown(KeyCode.DownArrow))
+            if (downButton.action.WasPressedThisFrame())
             {
                 return true;
             }
         }
-        if (aDirection == DirectionEnum.Left)
+        if (Direction == DirectionEnum.Left)
         {
-            if (Input.GetKeyDown(leftButton) || Input.GetKeyDown(leftButton0) || Input.GetKeyDown(KeyCode.LeftArrow))
+            if (leftButton.action.WasPressedThisFrame())
             {
                 return true;
             }
         }
-        if (aDirection == DirectionEnum.Right)
+        if (Direction == DirectionEnum.Right)
         {
-            if (Input.GetKeyDown(rightButton) || Input.GetKeyDown(rightButton0) || Input.GetKeyDown(KeyCode.RightArrow))
+            if (rightButton.action.WasPressedThisFrame())
             {
                 return true;
             }
