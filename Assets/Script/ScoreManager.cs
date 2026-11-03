@@ -1,13 +1,15 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class ScoreManager : MonoBehaviour
 {
-    int score;
-    int scoreMultiplier;
+    float score;
+    float scoreMultiplier;
     TMP_Text scoreText;
-    int currentStreak;
+    float currentStreak;
+    float addedScore;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,16 +25,33 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         scoreText.text = "SCORE: " + score;
-        if (Input.GetKeyDown("s"))
-        {
-            AddToScore(AccuracyEnum.Perfect);
-        }
-        scoreMultiplier = currentStreak + 1;
+        scoreMultiplier = currentStreak/10 + 1;
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum)
     {
-        score *= scoreMultiplier;
-        currentStreak += 1;
+        if (accuracyEnum != AccuracyEnum.Miss)
+        {
+            if (accuracyEnum == AccuracyEnum.Nice)
+            {
+                addedScore += 100;
+            }
+            if (accuracyEnum == AccuracyEnum.Cool)
+            {
+                addedScore += 200;
+            }
+            if (accuracyEnum == AccuracyEnum.Perfect)
+            {
+                addedScore += 500;
+            }
+            addedScore *= scoreMultiplier;
+            score += addedScore;
+            currentStreak += 1;
+            addedScore = 0;
+        }
+        else if (accuracyEnum == AccuracyEnum.Miss)
+        {
+            currentStreak = 0;
+        }
     }
 }
