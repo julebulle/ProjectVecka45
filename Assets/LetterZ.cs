@@ -9,6 +9,11 @@ public class LetterZ : MonoBehaviour
     public SpawningArrow spawningArrow;
     [SerializeField] int speed = 10;
 
+    [SerializeField] Sprite arrowLeft;
+    [SerializeField] Sprite arrowRight;
+    [SerializeField] Sprite arrowUp;
+    [SerializeField] Sprite arrowDown;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,20 +29,39 @@ public class LetterZ : MonoBehaviour
             dirX = 0;
             dirY = Random.Range(-1, 2); // determines up or down
         }
+        if (dirX == 0 && dirY == 0)
+        {
+            dirY = 1; // if both are 0 they go up
+        }
+
+        if (dirX == -1)
+        {
+            GetComponent<SpriteRenderer>().sprite = arrowLeft;
+        }
+        if (dirX == 1)
+        {
+            GetComponent<SpriteRenderer>().sprite = arrowRight;
+        }
+        if (dirY == 1)
+        {
+            GetComponent<SpriteRenderer>().sprite = arrowUp;
+        }
+        if (dirY == -1)
+        {
+            GetComponent<SpriteRenderer>().sprite = arrowDown;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dirX == 0 && dirY == 0)
-        {
-            dirY = 1; // if both are 0 they go up
-        }
+        
         transform.position += new Vector3(dirX, dirY, 0) * speed * Time.deltaTime;
 
         if (transform.position.x < -15 || transform.position.x > 15 || transform.position.y < -10 || transform.position.y > 10)
         {
             Destroy(gameObject);
         }
+        
     }
 }

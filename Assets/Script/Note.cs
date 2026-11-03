@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 public class Note : MonoBehaviour
 {
     [SerializeField]List<DirectionEnum> directions;
@@ -8,17 +9,19 @@ public class Note : MonoBehaviour
     public Transform targetPosition;
     public float speed;
     public List<Sprite> sprites;
-
     public int directionIndex;
+    public NoteSpawner spawner;
+    [SerializeField] float accuracy;
+
+    [InspectorLabel("Accuracy Margins")]
+    public float niceMargin;
+    public float coolMargin;
+    public float PerfectMargin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        /*for(int i = 0; i < directions.Count; i++)
-        {
-            plates[i] = GameObject.Find(directions[i].ToString()).transform;
-        }*/
-        directionIndex = Random.Range(0, directions.Count);
+        spawner = FindAnyObjectByType<NoteSpawner>();
 
         direction = directions[directionIndex];
 
@@ -26,7 +29,9 @@ public class Note : MonoBehaviour
 
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[directionIndex];
 
-        if(direction == DirectionEnum.Up)
+        //stets the direction the note should move
+        #region
+        if (direction == DirectionEnum.Up)
         {
             directionValue = Vector3.up;
         }
@@ -37,17 +42,58 @@ public class Note : MonoBehaviour
         else if(direction == DirectionEnum.Left)
         {
             directionValue = Vector3.left;
+
         }
         else
         {
             directionValue = Vector3.right;
         }
+        #endregion
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += directionValue * Time.deltaTime;
+        transform.position += directionValue * speed * Time.deltaTime;
+
+        accuracy = (transform.position.x - targetPosition.position.x) + (transform.position.y - targetPosition.position.y);
+
     }
 
+    public AccuracyEnum GetAccuracyEnum(float accuracy)
+    {
+        if(accuracy > -niceMargin && accuracy < niceMargin)
+        {
+            if(accuracy > -coolMargin && accuracy < coolMargin)
+            {
+                if(accuracy > -PerfectMargin && accuracy < PerfectMargin)
+                {
+                    return AccuracyEnum.Perfect;
+                }
+                else
+                {
+                    return AccuracyEnum.Cool;
+                }
+            }
+            else
+            {
+                return AccuracyEnum.Nice;
+            }
+        }
+        else
+        {
+            return AccuracyEnum.Miss;
+        }
+    }
+
+    public void CheckTiming()
+    {
+        Debug.Log(GetAccuracyEnum(accuracy).ToString());
+
+        spawner.RemoveNote(direction);
+
+        Destroy(gameObject);
+
+
+    }
 }
