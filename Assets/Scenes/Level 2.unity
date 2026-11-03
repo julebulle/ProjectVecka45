@@ -358,9 +358,9 @@ MonoBehaviour:
   downList: []
   leftList: []
   rightList: []
-  upButton: 100
+  upButton: 106
   downButton: 102
-  leftButton: 106
+  leftButton: 100
   rightButton: 107
 --- !u!1 &557090001
 GameObject:
@@ -397,7 +397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -267, y: -144.83333}
+  m_AnchoredPosition: {x: -243.6, y: -144.83333}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557090003
