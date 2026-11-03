@@ -7,8 +7,6 @@ public class Note : MonoBehaviour
     [SerializeField]List<DirectionEnum> directions;
     [SerializeField]DirectionEnum direction;
     Vector3 directionValue;
-
-    bool used;
     public Transform targetPosition;
     public float speed;
     public List<Sprite> sprites;
@@ -60,27 +58,22 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         transform.position += directionValue * speed * Time.deltaTime;
 
         accuracy = (transform.position.x - targetPosition.position.x) + (transform.position.y - targetPosition.position.y);
 
         if (transform.position.x < -10.16 || transform.position.x > 10.16)
         {
-            if (!used)
-            {
-                CheckTiming();
-            }
+            CheckTiming();
             Destroy(gameObject);
         }
             
 
         else if (transform.position.y > 6.3 || transform.position.y < -6.3)
         {
-            if (!used)
-            {
-                CheckTiming();
-            }
-            Destroy(gameObject);
+           CheckTiming();
+           Destroy(gameObject);
         }
     }
 
@@ -114,14 +107,13 @@ public class Note : MonoBehaviour
     {
         Debug.Log(GetAccuracyEnum().ToString());
 
-        spawner.RemoveNote(direction);
+        //spawner.RemoveNote(direction);
 
 
         scoreManager.AddToScore(GetAccuracyEnum());
 
         directionValue = Vector3.down;
 
-        used = true;
-        speed = 20;
+
     }
 }
