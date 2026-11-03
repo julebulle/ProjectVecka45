@@ -26,7 +26,6 @@ public class ScoreManager : MonoBehaviour
         scoreMultiplier = 1;
         currentStreak = 0;
         scoreText = FindAnyObjectByType<TMP_Text>();
-        powerUp.rectTransform.sizeDelta = new Vector2(powerUpIndicatorSize * currentStreak, powerUpIndicatorSize);
     }
 
     // Update is called once per frame
