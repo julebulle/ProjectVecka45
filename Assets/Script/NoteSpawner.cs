@@ -33,6 +33,7 @@ public class NoteSpawner : MonoBehaviour
             SpawnNote();
         }
 
+        //When you 
         #region
         if (Input.GetKeyDown(upButton))
         {
