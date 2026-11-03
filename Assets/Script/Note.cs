@@ -13,6 +13,7 @@ public class Note : MonoBehaviour
     public int directionIndex;
     public NoteSpawner spawner;
     [SerializeField] float accuracy;
+    ScoreManager scoreManager;
 
     [InspectorLabel("Accuracy Margins")]
     public float niceMargin;
@@ -22,6 +23,8 @@ public class Note : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+
         spawner = FindAnyObjectByType<NoteSpawner>();
 
         direction = directions[directionIndex];
@@ -67,7 +70,7 @@ public class Note : MonoBehaviour
         }
     }
 
-    public AccuracyEnum GetAccuracyEnum(float accuracy)
+    public AccuracyEnum GetAccuracyEnum()
     {
         if(accuracy > -niceMargin && accuracy < niceMargin)
         {
@@ -95,12 +98,13 @@ public class Note : MonoBehaviour
 
     public void CheckTiming()
     {
-        Debug.Log(GetAccuracyEnum(accuracy).ToString());
+        Debug.Log(GetAccuracyEnum().ToString());
 
         spawner.RemoveNote(direction);
 
+
+        scoreManager.AddToScore(GetAccuracyEnum());
+
         Destroy(gameObject);
-
-
     }
 }
