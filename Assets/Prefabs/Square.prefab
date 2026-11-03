@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &7454591499978525251
@@ -155,7 +155,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 0.78}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -177,3 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawningArrow: {fileID: 0}
   speed: 10
+  arrowLeft: {fileID: 1218268146595743105, guid: 8ea147532fec0534ab1a4b4019bece39, type: 3}
+  arrowRight: {fileID: -4643437788559500429, guid: b7619343b5d87814da4c7263017af73c, type: 3}
+  arrowUp: {fileID: -3201335710889687837, guid: c48a52c85ee7d3d4d92c212e386eea40, type: 3}
+  arrowDown: {fileID: -4432714776453720695, guid: af306a2deac6b4c41a40f1311219defe, type: 3}
