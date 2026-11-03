@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEngine.InputSystem;
 
 public class NoteSpawner : MonoBehaviour
 {
@@ -12,10 +13,10 @@ public class NoteSpawner : MonoBehaviour
     public List<Note> leftList;
     public List<Note> rightList;
 
-    public KeyCode upButton;
-    public KeyCode downButton;
-    public KeyCode leftButton;
-    public KeyCode rightButton;
+    public InputActionReference upButton;
+    public InputActionReference downButton;
+    public InputActionReference leftButton;
+    public InputActionReference rightButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,30 +34,32 @@ public class NoteSpawner : MonoBehaviour
             SpawnNote();
         }
 
-        //When you 
+        //When you press a button it does the thing
+
         #region
-        if (Input.GetKeyDown(upButton))
+        
+        if (upButton.action.WasPressedThisFrame())
         {
             if (upList.Count > 0)
             {
                 upList[0].CheckTiming();
             }
         }
-        else if (Input.GetKeyDown(downButton))
+        else if (downButton.action.WasPressedThisFrame())
         {
             if(downList.Count > 0)
             {
                 downList[0].CheckTiming();
             }
         }
-        else if (Input.GetKeyDown(leftButton))
+        else if (leftButton.action.WasPressedThisFrame())
         {
             if(leftList.Count > 0)
             {
                 leftList[0].CheckTiming();
             }
         }
-        else if (Input.GetKeyDown(rightButton))
+        else if (rightButton.action.WasPressedThisFrame())
         {
             if(rightList.Count > 0)
             {

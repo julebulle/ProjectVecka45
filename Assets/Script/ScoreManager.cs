@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
     float currentStreak;
     float addedScore;
 
-    public Image powerUp;
     const int powerUpIndicatorSize = 105;
 
     public 

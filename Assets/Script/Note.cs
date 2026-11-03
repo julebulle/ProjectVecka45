@@ -7,6 +7,8 @@ public class Note : MonoBehaviour
     [SerializeField]List<DirectionEnum> directions;
     [SerializeField]DirectionEnum direction;
     Vector3 directionValue;
+
+    bool used;
     public Transform targetPosition;
     public float speed;
     public List<Sprite> sprites;
@@ -64,15 +66,21 @@ public class Note : MonoBehaviour
 
         if (transform.position.x < -10.16 || transform.position.x > 10.16)
         {
-            CheckTiming();
-          Destroy(gameObject);
+            if (!used)
+            {
+                CheckTiming();
+            }
+            Destroy(gameObject);
         }
             
 
         else if (transform.position.y > 6.3 || transform.position.y < -6.3)
         {
-           CheckTiming();
-           Destroy(gameObject);
+            if (!used)
+            {
+                CheckTiming();
+            }
+            Destroy(gameObject);
         }
     }
 
@@ -113,6 +121,7 @@ public class Note : MonoBehaviour
 
         directionValue = Vector3.down;
 
-
+        used = true;
+        speed = 20;
     }
 }
