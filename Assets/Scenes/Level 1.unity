@@ -358,10 +358,10 @@ MonoBehaviour:
   downList: []
   leftList: []
   rightList: []
-  upButton: 122
-  downButton: 120
-  leftButton: 110
-  rightButton: 109
+  upButton: 100
+  downButton: 102
+  leftButton: 106
+  rightButton: 107
 --- !u!1 &557090001
 GameObject:
   m_ObjectHideFlags: 0
