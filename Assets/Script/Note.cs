@@ -14,11 +14,13 @@ public class Note : MonoBehaviour
     public NoteSpawner spawner;
     [SerializeField] float accuracy;
     ScoreManager scoreManager;
+    bool used;
 
     [InspectorLabel("Accuracy Margins")]
     public float niceMargin;
     public float coolMargin;
     public float PerfectMargin;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,15 +67,22 @@ public class Note : MonoBehaviour
 
         if (transform.position.x < -10.16 || transform.position.x > 10.16)
         {
-            CheckTiming();
+            if (!used)
+            {
+                CheckTiming();
+            }
             Destroy(gameObject);
         }
             
 
         else if (transform.position.y > 6.3 || transform.position.y < -6.3)
         {
-           CheckTiming();
-           Destroy(gameObject);
+            if (!used)
+            {
+                CheckTiming();
+            }
+           
+            Destroy(gameObject);
         }
     }
 
@@ -107,13 +116,14 @@ public class Note : MonoBehaviour
     {
         Debug.Log(GetAccuracyEnum().ToString());
 
-        //spawner.RemoveNote(direction);
+        spawner.RemoveNote(direction);
 
 
         scoreManager.AddToScore(GetAccuracyEnum());
 
         directionValue = Vector3.down;
 
-
+        used = true;
+        speed = 20;
     }
 }
