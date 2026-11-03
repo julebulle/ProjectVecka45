@@ -359,10 +359,14 @@ MonoBehaviour:
   downList: []
   leftList: []
   rightList: []
-  upButton: 100
+  upButton: 106
   downButton: 102
-  leftButton: 106
+  leftButton: 100
   rightButton: 107
+  upButton0: 0
+  downButton0: 0
+  leftButton0: 0
+  rightButton0: 0
 --- !u!1 &557090001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1493456461
 RectTransform:
   m_ObjectHideFlags: 0

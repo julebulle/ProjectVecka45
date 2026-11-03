@@ -107,9 +107,6 @@ public class Note : MonoBehaviour
     {
         Debug.Log(GetAccuracyEnum().ToString());
 
-        //spawner.RemoveNote(direction);
-
-
         scoreManager.AddToScore(GetAccuracyEnum());
 
         directionValue = Vector3.down;
