@@ -27,14 +27,13 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "SCORE: " + score;
         if (Input.anyKeyDown)
         {
-            AddToScore(10);
+            AddToScore(AccuracyEnum.Perfect);
         }
     }
 
-    public void AddToScore(int Score)
+    public void AddToScore(AccuracyEnum accuracyEnum)
     {
         score *= scoreMultiplier;
-        score += Score;
         currentStreak += 1;
         scoreMultiplier += 1;
     }

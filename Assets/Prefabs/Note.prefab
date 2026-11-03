@@ -103,10 +103,15 @@ MonoBehaviour:
   directions: 00000000010000000200000003000000
   direction: 0
   targetPosition: {fileID: 0}
-  speed: 5
+  speed: 4
   sprites:
   - {fileID: -3201335710889687837, guid: 61c295b5b5a24ea4c967f537a183008d, type: 3}
-  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -4432714776453720695, guid: 338140666399aef40a4ac99edaf3af2b, type: 3}
   - {fileID: 1218268146595743105, guid: b67e915167695524f9f6459f849043b2, type: 3}
   - {fileID: -4643437788559500429, guid: 0d4f157051d2dd04aa1b8f0af9fe8cc1, type: 3}
   directionIndex: 0
+  spawner: {fileID: 0}
+  accuracy: 0
+  niceMargin: 0.8
+  coolMargin: 0.5
+  PerfectMargin: 0.3
