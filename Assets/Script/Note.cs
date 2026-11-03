@@ -84,6 +84,11 @@ public class Note : MonoBehaviour
            
             Destroy(gameObject);
         }
+
+        if(GetAccuracyEnum() == AccuracyEnum.Nice)
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
     }
 
     public AccuracyEnum GetAccuracyEnum()
