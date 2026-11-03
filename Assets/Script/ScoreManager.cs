@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
 {
     float score;
     float scoreMultiplier;
-    TMP_Text scoreText;
+    [SerializeField] public TMP_Text scoreText;
     float currentStreak;
     float addedScore;
 
@@ -25,7 +25,6 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         scoreMultiplier = 1;
         currentStreak = 0;
-        scoreText = FindAnyObjectByType<TMP_Text>();
     }
 
     // Update is called once per frame

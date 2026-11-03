@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using UnityEngine.InputSystem;
 
 public class NoteSpawner : MonoBehaviour
 {
@@ -13,18 +12,54 @@ public class NoteSpawner : MonoBehaviour
     public List<Note> leftList;
     public List<Note> rightList;
 
-    public InputActionReference upButton;
-    public InputActionReference downButton;
-    public InputActionReference leftButton;
-    public InputActionReference rightButton;
+    public KeyCode upButton;
+    public KeyCode downButton;
+    public KeyCode leftButton;
+    public KeyCode rightButton;
+    public KeyCode upButton0;
+    public KeyCode downButton0;
+    public KeyCode leftButton0;
+    public KeyCode rightButton0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         SpawnNote();
+        
     }
-
+    public  bool CheckInputDirection(DirectionEnum aDirection)
+    {
+        if(aDirection == DirectionEnum.Up)
+        {
+            if (Input.GetKeyDown(upButton) || Input.GetKeyDown(upButton0) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                return true;
+            }
+        }
+        if (aDirection == DirectionEnum.Down)
+        {
+            if (Input.GetKeyDown(downButton) || Input.GetKeyDown(downButton0) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                return true;
+            }
+        }
+        if (aDirection == DirectionEnum.Left)
+        {
+            if (Input.GetKeyDown(leftButton) || Input.GetKeyDown(leftButton0) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                return true;
+            }
+        }
+        if (aDirection == DirectionEnum.Right)
+        {
+            if (Input.GetKeyDown(rightButton) || Input.GetKeyDown(rightButton0) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -34,32 +69,30 @@ public class NoteSpawner : MonoBehaviour
             SpawnNote();
         }
 
-        //When you press a button it does the thing
-
+        //When you 
         #region
-        
-        if (upButton.action.WasPressedThisFrame())
+        if (CheckInputDirection(DirectionEnum.Up))
         {
             if (upList.Count > 0)
             {
                 upList[0].CheckTiming();
             }
         }
-        else if (downButton.action.WasPressedThisFrame())
+        else if (CheckInputDirection(DirectionEnum.Down))
         {
             if(downList.Count > 0)
             {
                 downList[0].CheckTiming();
             }
         }
-        else if (leftButton.action.WasPressedThisFrame())
+        else if (CheckInputDirection(DirectionEnum.Left))
         {
             if(leftList.Count > 0)
             {
                 leftList[0].CheckTiming();
             }
         }
-        else if (rightButton.action.WasPressedThisFrame())
+        else if (CheckInputDirection(DirectionEnum.Right))
         {
             if(rightList.Count > 0)
             {
