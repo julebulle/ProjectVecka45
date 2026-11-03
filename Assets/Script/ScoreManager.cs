@@ -10,7 +10,6 @@ public class ScoreManager : MonoBehaviour
     int currentStreak;
 
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,23 +17,22 @@ public class ScoreManager : MonoBehaviour
         scoreMultiplier = 1;
         currentStreak = 0;
         scoreText = FindAnyObjectByType<TMP_Text>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreText.text = "SCORE: " + score;
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown("s"))
         {
             AddToScore(AccuracyEnum.Perfect);
         }
+        scoreMultiplier = currentStreak + 1;
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum)
     {
         score *= scoreMultiplier;
         currentStreak += 1;
-        scoreMultiplier += 1;
     }
 }
