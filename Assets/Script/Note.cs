@@ -85,10 +85,6 @@ public class Note : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(GetAccuracyEnum() == AccuracyEnum.Nice)
-        {
-            GetComponent<SpriteRenderer>().color = Color.yellow;
-        }
     }
 
     public AccuracyEnum GetAccuracyEnum()
@@ -126,7 +122,14 @@ public class Note : MonoBehaviour
 
         scoreManager.AddToScore(GetAccuracyEnum(), direction);
 
-        directionValue = Vector3.down;
+        if(direction == DirectionEnum.Up)
+        {
+
+        }
+        else
+        {
+            directionValue = Vector3.down;
+        }
 
         used = true;
         speed = 20;
