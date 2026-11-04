@@ -15,6 +15,6 @@ public class FinalScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        winText.text = "Final Score: " + scoreManager.scoreText;
+        winText.text = "Final Score: " + scoreManager.score.ToString();
     }
 }
