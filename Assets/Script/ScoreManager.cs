@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
@@ -17,15 +18,14 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text plateTextD;
     int currentStreak;
     int bestStreak;
-    int maxStreak;
-
-    int streakProgression;
+    [SerializeField]int maxStreak;
+    [SerializeField]int streakBarProgression;
     public TMP_Text streakText;
+    bool streakRewardInProgress;
     float addedScore;
     NoteSpawner noteSpawner;
 
     public Image powerUp;
-    const int powerUpIndicatorSize = 105;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,12 +46,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "SCORE: " + score;
         scoreMultiplier = currentStreak/10 + 1;
 
-        if (streakText != null)
-        {
-            streakText.text = new string(currentStreak.ToString() + "                            Best Streak" + bestStreak.ToString());
-
-        }
-        
+        powerUp.rectTransform.sizeDelta = new Vector2(100 * streakBarProgression, 100);
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum, DirectionEnum directionEnum)
@@ -87,7 +82,26 @@ public class ScoreManager : MonoBehaviour
             SetEffects(directionEnum, Color.black, "Miss!");
             currentStreak = 0;
         }
+
         
+        if(streakBarProgression < maxStreak)
+        {
+            streakBarProgression = Mathf.FloorToInt(currentStreak * 0.2f);
+        }
+        if(streakBarProgression == 5 && !streakRewardInProgress)
+        {
+            StartCoroutine(EnablePlaceHolderMode());
+        }
+        
+    }
+
+    public IEnumerator EnablePlaceHolderMode()
+    {
+        Debug.Log("Start streak reward");
+        streakRewardInProgress = true;
+        yield return new WaitForSeconds(15);
+        streakRewardInProgress = false;
+
     }
 
     public void SetEffects(DirectionEnum directionEnum, Color effectcolor, string text)
