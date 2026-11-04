@@ -22,9 +22,6 @@ public class ScoreManager : MonoBehaviour
     public Image powerUp;
     const int powerUpIndicatorSize = 105;
 
-    public 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,28 +48,17 @@ public class ScoreManager : MonoBehaviour
         {
             if (accuracyEnum == AccuracyEnum.Nice)
             {
-                #region
-                if (directionEnum == DirectionEnum.Up) {noteSpawner.upEmitter.startColor = Color.green; plateTextU.gameObject.SetActive(true); plateTextU.text = "Nice!"; }
-                if (directionEnum == DirectionEnum.Left) {noteSpawner.leftEmitter.startColor = Color.green; plateTextL.gameObject.SetActive(true); plateTextL.text = "Nice!"; }
-                if (directionEnum == DirectionEnum.Right) {noteSpawner.rightEmitter.startColor = Color.green; plateTextR.gameObject.SetActive(true); plateTextR.text = "Nice!"; }
-                if (directionEnum == DirectionEnum.Down) {noteSpawner.downEmitter.startColor = Color.green; plateTextD.gameObject.SetActive(true); plateTextD.text = "Nice!"; }
-                #endregion
+                SetEffects(directionEnum, Color.green, "Nice!");
                 addedScore += 100;
             }
             if (accuracyEnum == AccuracyEnum.Cool)
             {
-                if (directionEnum == DirectionEnum.Up) { noteSpawner.upEmitter.startColor = Color.cyan; plateTextU.gameObject.SetActive(true); plateTextU.text = "Cool!"; }
-                if (directionEnum == DirectionEnum.Left) { noteSpawner.leftEmitter.startColor = Color.cyan; plateTextL.gameObject.SetActive(true); plateTextL.text = "Cool!"; }
-                if (directionEnum == DirectionEnum.Right) { noteSpawner.rightEmitter.startColor = Color.cyan; plateTextR.gameObject.SetActive(true); plateTextR.text = "Cool!"; }
-                if (directionEnum == DirectionEnum.Down) { noteSpawner.downEmitter.startColor = Color.cyan; plateTextD.gameObject.SetActive(true); plateTextD.text = "Cool!"; }
+                SetEffects(directionEnum, Color.cyan, "Cool!");
                 addedScore += 200;
             }
             if (accuracyEnum == AccuracyEnum.Perfect)
             {
-                if (directionEnum == DirectionEnum.Up) { noteSpawner.upEmitter.startColor = Color.magenta; plateTextU.gameObject.SetActive(true); plateTextU.text = "Perfect!"; }
-                if (directionEnum == DirectionEnum.Left) {noteSpawner.leftEmitter.startColor = Color.magenta; plateTextL.gameObject.SetActive(true); plateTextL.text = "Perfect!"; }
-                if (directionEnum == DirectionEnum.Right) {noteSpawner.rightEmitter.startColor = Color.magenta; plateTextR.gameObject.SetActive(true); plateTextR.text = "Perfect!"; }
-                if (directionEnum == DirectionEnum.Down) {noteSpawner.downEmitter.startColor = Color.magenta; plateTextD.gameObject.SetActive(true); plateTextD.text = "Perfect!"; }
+                SetEffects(directionEnum, Color.magenta, "Perfect!");
                 addedScore += 500;
             }
             addedScore *= scoreMultiplier;
@@ -82,11 +68,16 @@ public class ScoreManager : MonoBehaviour
         }
         else if (accuracyEnum == AccuracyEnum.Miss)
         {
-            if (directionEnum == DirectionEnum.Up) { noteSpawner.upEmitter.startColor = Color.black; plateTextU.gameObject.SetActive(true); plateTextU.text = "Miss!"; }
-            if (directionEnum == DirectionEnum.Left) { noteSpawner.leftEmitter.startColor = Color.black; plateTextL.gameObject.SetActive(true); plateTextL.text = "Miss!"; }
-            if (directionEnum == DirectionEnum.Right) { noteSpawner.rightEmitter.startColor = Color.black; plateTextR.gameObject.SetActive(true); plateTextR.text = "Miss!"; }
-            if (directionEnum == DirectionEnum.Down) { noteSpawner.downEmitter.startColor = Color.black; plateTextL.gameObject.SetActive(true); plateTextD.text = "Miss!"; }
+            SetEffects(directionEnum, Color.black, "Miss!");
             currentStreak = 0;
         }
+    }
+
+    public void SetEffects(DirectionEnum directionEnum, Color effectcolor, string text)
+    {
+        if (directionEnum == DirectionEnum.Up) { noteSpawner.upEmitter.startColor = effectcolor; plateTextU.gameObject.SetActive(true); plateTextU.text = text; }
+        if (directionEnum == DirectionEnum.Left) { noteSpawner.leftEmitter.startColor = effectcolor; plateTextL.gameObject.SetActive(true); plateTextL.text = text; }
+        if (directionEnum == DirectionEnum.Right) { noteSpawner.rightEmitter.startColor = effectcolor; plateTextR.gameObject.SetActive(true); plateTextR.text = text; }
+        if (directionEnum == DirectionEnum.Down) { noteSpawner.downEmitter.startColor = effectcolor; plateTextL.gameObject.SetActive(true); plateTextD.text = text; }
     }
 }
