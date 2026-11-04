@@ -103,7 +103,7 @@ MonoBehaviour:
   directions: 00000000010000000200000003000000
   direction: 0
   targetPosition: {fileID: 0}
-  speed: 4
+  speed: 8
   sprites:
   - {fileID: -3201335710889687837, guid: 61c295b5b5a24ea4c967f537a183008d, type: 3}
   - {fileID: -4432714776453720695, guid: 338140666399aef40a4ac99edaf3af2b, type: 3}
