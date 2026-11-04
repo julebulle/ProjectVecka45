@@ -134,18 +134,22 @@ public class NoteSpawner : MonoBehaviour
     {
         if(direction == DirectionEnum.Up)
         {
+            upEmitter.Play();
             upList.RemoveAt(0);
         }
         else if(direction == DirectionEnum.Down)
         {
+            downEmitter.Play();
             downList.RemoveAt(0);
         }
         else if (direction == DirectionEnum.Left)
         {
+            leftEmitter.Play();
             leftList.RemoveAt(0);
         }
         else if (direction == DirectionEnum.Right)
         {
+            rightEmitter.Play();
             rightList.RemoveAt(0);
         }
     }
