@@ -12,6 +12,11 @@ public class NoteSpawner : MonoBehaviour
     public List<Note> leftList;
     public List<Note> rightList;
 
+    [SerializeField] public ParticleSystem upEmitter;
+    [SerializeField] public ParticleSystem leftEmitter;
+    [SerializeField] public ParticleSystem rightEmitter;
+    [SerializeField] public ParticleSystem downEmitter;
+
     public InputActionReference upButton;
     public InputActionReference downButton;
     public InputActionReference leftButton;
