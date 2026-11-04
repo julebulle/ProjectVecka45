@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text plateTextU;
     [SerializeField] TMP_Text plateTextD;
     float currentStreak;
+    public Text streakText;
     float addedScore;
     NoteSpawner noteSpawner;
 
@@ -40,12 +41,19 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "SCORE: " + score;
         scoreMultiplier = currentStreak/10 + 1;
+
+        if (streakText != null)
+        {
+            streakText.text = currentStreak.ToString();
+        }
+        
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum, DirectionEnum directionEnum)
     {
         if (accuracyEnum != AccuracyEnum.Miss)
         {
+            currentStreak += 1;
             if (accuracyEnum == AccuracyEnum.Nice)
             {
                 SetEffects(directionEnum, Color.green, "Nice!");
