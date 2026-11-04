@@ -5417,6 +5417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322c2d29b901798478a6dd3bf7771f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   scoreText: {fileID: 557090004}
   plateTextR: {fileID: 1571607681}
   plateTextL: {fileID: 1776750310}
@@ -21279,7 +21280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1493456461
 RectTransform:
   m_ObjectHideFlags: 0

@@ -115,7 +115,6 @@ public class Note : MonoBehaviour
 
     public void CheckTiming()
     {
-        Debug.Log(GetAccuracyEnum().ToString());
 
         spawner.RemoveNote(direction);
 
