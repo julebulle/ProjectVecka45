@@ -5422,6 +5422,7 @@ MonoBehaviour:
   plateTextL: {fileID: 1776750310}
   plateTextU: {fileID: 773541039}
   plateTextD: {fileID: 587544459}
+  streakText: {fileID: 1632624986}
   powerUp: {fileID: 0}
 --- !u!114 &557090004
 MonoBehaviour:
@@ -6105,7 +6106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1046037091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21278,7 +21279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1493456461
 RectTransform:
   m_ObjectHideFlags: 0
