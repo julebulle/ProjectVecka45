@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour
     int currentStreak;
     int bestStreak;
     int maxStreak;
+
+    int streakProgression;
     public TMP_Text streakText;
     float addedScore;
     NoteSpawner noteSpawner;
@@ -46,7 +48,7 @@ public class ScoreManager : MonoBehaviour
 
         if (streakText != null)
         {
-            streakText.text = new string(currentStreak.ToString() + "                       Best Streak" + bestStreak.ToString());
+            streakText.text = new string(currentStreak.ToString() + "                            Best Streak" + bestStreak.ToString());
 
         }
         
@@ -85,6 +87,7 @@ public class ScoreManager : MonoBehaviour
             SetEffects(directionEnum, Color.black, "Miss!");
             currentStreak = 0;
         }
+        
     }
 
     public void SetEffects(DirectionEnum directionEnum, Color effectcolor, string text)
