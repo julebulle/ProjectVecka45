@@ -86,6 +86,6 @@ public class ScoreManager : MonoBehaviour
         if (directionEnum == DirectionEnum.Up) { noteSpawner.upEmitter.startColor = effectcolor; plateTextU.gameObject.SetActive(true); plateTextU.text = text; }
         if (directionEnum == DirectionEnum.Left) { noteSpawner.leftEmitter.startColor = effectcolor; plateTextL.gameObject.SetActive(true); plateTextL.text = text; }
         if (directionEnum == DirectionEnum.Right) { noteSpawner.rightEmitter.startColor = effectcolor; plateTextR.gameObject.SetActive(true); plateTextR.text = text; }
-        if (directionEnum == DirectionEnum.Down) { noteSpawner.downEmitter.startColor = effectcolor; plateTextL.gameObject.SetActive(true); plateTextD.text = text; }
+        if (directionEnum == DirectionEnum.Down) { noteSpawner.downEmitter.startColor = effectcolor; plateTextD.gameObject.SetActive(true); plateTextD.text = text; }
     }
 }
