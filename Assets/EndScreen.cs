@@ -11,7 +11,7 @@ public class EndScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (true)
+        if (Input.GetKeyDown(KeyCode.X))
         {
             transform.position = new Vector3(960, 540, 0);
             Time.timeScale = 0;
