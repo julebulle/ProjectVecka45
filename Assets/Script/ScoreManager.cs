@@ -8,15 +8,17 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    float score;
+    public float score;
     float scoreMultiplier;
     [SerializeField] public TMP_Text scoreText;
     [SerializeField] TMP_Text plateTextR;
     [SerializeField] TMP_Text plateTextL;
     [SerializeField] TMP_Text plateTextU;
     [SerializeField] TMP_Text plateTextD;
-    float currentStreak;
-    public Text streakText;
+    int currentStreak;
+    int bestStreak;
+    int maxStreak;
+    public TMP_Text streakText;
     float addedScore;
     NoteSpawner noteSpawner;
 
@@ -44,7 +46,8 @@ public class ScoreManager : MonoBehaviour
 
         if (streakText != null)
         {
-            streakText.text = currentStreak.ToString();
+            streakText.text = new string(currentStreak.ToString() + "                       Best Streak" + bestStreak.ToString());
+
         }
         
     }
@@ -53,7 +56,10 @@ public class ScoreManager : MonoBehaviour
     {
         if (accuracyEnum != AccuracyEnum.Miss)
         {
-            currentStreak += 1;
+            if(currentStreak > bestStreak)
+            {
+                bestStreak = currentStreak;
+            }
             if (accuracyEnum == AccuracyEnum.Nice)
             {
                 SetEffects(directionEnum, Color.green, "Nice!");
