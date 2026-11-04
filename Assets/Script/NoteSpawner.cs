@@ -17,10 +17,15 @@ public class NoteSpawner : MonoBehaviour
     public InputActionReference leftButton;
     public InputActionReference rightButton;
 
+    [SerializeField] public ParticleSystem rightEmitter;
+    [SerializeField] public ParticleSystem leftEmitter;
+    [SerializeField] public ParticleSystem upEmitter;
+    [SerializeField] public ParticleSystem downEmitter;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
         SpawnNote();
         
     }
@@ -133,18 +138,22 @@ public class NoteSpawner : MonoBehaviour
         if(direction == DirectionEnum.Up)
         {
             upList.RemoveAt(0);
+            upEmitter.Play();
         }
         else if(direction == DirectionEnum.Down)
         {
             downList.RemoveAt(0);
+            downEmitter.Play();
         }
         else if (direction == DirectionEnum.Left)
         {
             leftList.RemoveAt(0);
+            leftEmitter.Play();
         }
         else if (direction == DirectionEnum.Right)
         {
             rightList.RemoveAt(0);
+            rightEmitter.Play();
         }
     }
 

@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] public TMP_Text scoreText;
     float currentStreak;
     float addedScore;
+    NoteSpawner noteSpawner;
 
     public Image powerUp;
     const int powerUpIndicatorSize = 105;
@@ -25,6 +26,7 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         scoreMultiplier = 1;
         currentStreak = 0;
+        noteSpawner = FindAnyObjectByType<NoteSpawner>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class ScoreManager : MonoBehaviour
         {
             if (accuracyEnum == AccuracyEnum.Nice)
             {
+                noteSpawner.leftEmitter.GetComponent<ParticleSystem>().startColor = Color.red;
                 addedScore += 100;
             }
             if (accuracyEnum == AccuracyEnum.Cool)
