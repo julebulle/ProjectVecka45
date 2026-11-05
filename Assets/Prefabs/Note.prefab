@@ -112,6 +112,6 @@ MonoBehaviour:
   directionIndex: 0
   spawner: {fileID: 0}
   accuracy: 0
-  niceMargin: 10
+  niceMargin: 1.2
   coolMargin: 0.8
   PerfectMargin: 0.5

@@ -5313,8 +5313,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 20, y: 0}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &508131343
 MonoBehaviour:
@@ -5428,12 +5428,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 8425c80861c9db44ca871fa311f07777, type: 2}
+    - {fileID: 11400000, guid: afe6d058b58e2e9468bbb0f393e34e07, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 541291958}
           m_TargetAssemblyTypeName: NoteSpawner, Assembly-CSharp
           m_MethodName: SpawnNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1046037095}
+          m_TargetAssemblyTypeName: EndScreen, Assembly-CSharp
+          m_MethodName: ShowEndScreen
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5500,6 +5515,7 @@ MonoBehaviour:
   plateTextU: {fileID: 773541039}
   plateTextD: {fileID: 587544459}
   maxStreak: 5
+  streakBarProgression: 0
   streakText: {fileID: 0}
   powerUp: {fileID: 508131343}
 --- !u!114 &557090004
@@ -21663,7 +21679,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 512, y: 106}
+  m_SizeDelta: {x: 560, y: 120}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1627954190
 MonoBehaviour:
