@@ -62,6 +62,7 @@ public class NoteSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //When you 
         #region
         if (CheckInputDirection(DirectionEnum.Up))

@@ -35,7 +35,8 @@ public class Note : MonoBehaviour
 
         targetPosition = GameObject.Find(direction.ToString()).transform;
 
-        GetComponent<SpriteRenderer>().sprite = placeholderSprite;
+            GetComponent<SpriteRenderer>().sprite = sprites[directionIndex];
+
 
 
         //stets the direction the note should move
