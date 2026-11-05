@@ -2,11 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.U2D.Animation;
 public class Note : MonoBehaviour
 {
     [SerializeField]List<DirectionEnum> directions;
     [SerializeField]DirectionEnum direction;
     Vector3 directionValue;
+    public Sprite placeholderSprite;
     public Transform targetPosition;
     public float speed;
     public List<Sprite> sprites;
@@ -33,7 +35,9 @@ public class Note : MonoBehaviour
 
         targetPosition = GameObject.Find(direction.ToString()).transform;
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[directionIndex];
+            GetComponent<SpriteRenderer>().sprite = sprites[directionIndex];
+
+
 
         //stets the direction the note should move
         #region
@@ -60,7 +64,13 @@ public class Note : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        if (!ScoreManager.streakRewardInProgress)
+        {
+            GetComponent<SpriteRenderer>().sprite = sprites[directionIndex];        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = placeholderSprite;
+        }
         transform.position += directionValue * speed * Time.deltaTime;
 
         accuracy = (transform.position.x - targetPosition.position.x) + (transform.position.y - targetPosition.position.y);
@@ -121,16 +131,6 @@ public class Note : MonoBehaviour
 
         scoreManager.AddToScore(GetAccuracyEnum(), direction);
 
-        if(direction == DirectionEnum.Up)
-        {
-
-        }
-        else
-        {
-            directionValue = Vector3.down;
-        }
-
-        used = true;
-        speed = 20;
+        Destroy(gameObject);
     }
 }

@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class EndScreen : MonoBehaviour
 {
+    public TimelineAsset timeline;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,7 +17,7 @@ public class EndScreen : MonoBehaviour
 
     }
 
-    public void ShowEndScreen()
+    public void EndLevel()
     {
         transform.position = new Vector3(960, 540, 0);
         Time.timeScale = 0;

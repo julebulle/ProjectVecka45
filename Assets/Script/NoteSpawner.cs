@@ -63,11 +63,6 @@ public class NoteSpawner : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnNote();
-        }
-
         //When you 
         #region
         if (CheckInputDirection(DirectionEnum.Up))
