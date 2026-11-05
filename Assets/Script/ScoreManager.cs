@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -17,6 +18,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text plateTextU;
     [SerializeField] TMP_Text plateTextD;
     [SerializeField] GameObject background;
+    [SerializeField] GameObject salmon;
+    [SerializeField] Sprite goodSalmon;
+    [SerializeField] Sprite superSalmon;
+    [SerializeField] Sprite perfectSalmon;
     int currentStreak;
     int realCurrentStreak;
     public int bestStreak;
@@ -26,6 +31,7 @@ public class ScoreManager : MonoBehaviour
     public static bool streakRewardInProgress;
     float addedScore;
     NoteSpawner noteSpawner;
+    public float maxPoints;
 
     public Image powerUp;
     float streakrewardCountdown = 500 / 15;
@@ -58,12 +64,11 @@ public class ScoreManager : MonoBehaviour
         {
             powerUp.rectTransform.sizeDelta -= new Vector2(streakrewardCountdown, 0) * Time.deltaTime;
         }
-
-        
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum, DirectionEnum directionEnum)
     {
+        maxPoints += 500;
         if (accuracyEnum != AccuracyEnum.Miss)
         {
             if(realCurrentStreak > bestStreak)
@@ -72,18 +77,21 @@ public class ScoreManager : MonoBehaviour
             }
             if (accuracyEnum == AccuracyEnum.Nice)
             {
-                SetEffects(directionEnum, Color.green, "Nice!");
+                SetEffects(directionEnum, Color.green, "Good!");
                 addedScore += 100;
+                salmon.GetComponent<SpriteRenderer>().sprite = goodSalmon;
             }
             if (accuracyEnum == AccuracyEnum.Cool)
             {
-                SetEffects(directionEnum, Color.cyan, "Cool!");
+                SetEffects(directionEnum, Color.cyan, "Super!");
                 addedScore += 200;
+                salmon.GetComponent<SpriteRenderer>().sprite = superSalmon;
             }
             if (accuracyEnum == AccuracyEnum.Perfect)
             {
                 SetEffects(directionEnum, Color.magenta, "Perfect!");
                 addedScore += 500;
+                salmon.GetComponent<SpriteRenderer>().sprite = perfectSalmon;
             }
             addedScore *= scoreMultiplier;
             score += addedScore;
@@ -100,7 +108,10 @@ public class ScoreManager : MonoBehaviour
             SetEffects(directionEnum, Color.black, "Miss!");
             currentStreak = 0;
             realCurrentStreak = 0;
+            salmon.GetComponent<SpriteRenderer>().sprite = null;
         }
+
+        
 
         
         if(streakBarProgression < maxStreak)
@@ -117,6 +128,7 @@ public class ScoreManager : MonoBehaviour
     {
         Debug.Log("Start streak reward");
         powerUp.rectTransform.sizeDelta = new Vector2(500, 100);
+        scoreMultiplier = 5;
         streakRewardInProgress = true;
         streakBarProgression = 0;
         currentStreak = 0;
@@ -124,6 +136,7 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(15);
         background.SetActive(true);
         streakRewardInProgress = false;
+        scoreMultiplier = 1;
         Debug.Log("end streakReward");
 
     }
