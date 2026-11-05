@@ -26,6 +26,7 @@ public class ScoreManager : MonoBehaviour
     public static bool streakRewardInProgress;
     float addedScore;
     NoteSpawner noteSpawner;
+    public float maxPoints;
 
     public Image powerUp;
     float streakrewardCountdown = 500 / 15;
@@ -58,12 +59,11 @@ public class ScoreManager : MonoBehaviour
         {
             powerUp.rectTransform.sizeDelta -= new Vector2(streakrewardCountdown, 0) * Time.deltaTime;
         }
-
-        
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum, DirectionEnum directionEnum)
     {
+        maxPoints += 500;
         if (accuracyEnum != AccuracyEnum.Miss)
         {
             if(realCurrentStreak > bestStreak)
@@ -103,6 +103,8 @@ public class ScoreManager : MonoBehaviour
         }
 
         
+
+        
         if(streakBarProgression < maxStreak)
         {
             streakBarProgression = Mathf.FloorToInt(currentStreak * 0.2f);
@@ -117,6 +119,7 @@ public class ScoreManager : MonoBehaviour
     {
         Debug.Log("Start streak reward");
         powerUp.rectTransform.sizeDelta = new Vector2(500, 100);
+        scoreMultiplier = 5;
         streakRewardInProgress = true;
         streakBarProgression = 0;
         currentStreak = 0;
@@ -124,6 +127,7 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(15);
         background.SetActive(true);
         streakRewardInProgress = false;
+        scoreMultiplier = 1;
         Debug.Log("end streakReward");
 
     }
