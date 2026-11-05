@@ -21,11 +21,12 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]int maxStreak;
     [SerializeField]int streakBarProgression;
     public TMP_Text streakText;
-    bool streakRewardInProgress;
+    public static bool streakRewardInProgress;
     float addedScore;
     NoteSpawner noteSpawner;
 
     public Image powerUp;
+    float streakrewardCountdown = 500 / 15;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,7 +47,17 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "SCORE: " + score;
         scoreMultiplier = currentStreak/10 + 1;
 
-        powerUp.rectTransform.sizeDelta = new Vector2(100 * streakBarProgression, 100);
+        
+        if (!streakRewardInProgress)
+        {
+            powerUp.rectTransform.sizeDelta = new Vector2(100 * streakBarProgression, 100);
+        }
+        else
+        {
+            powerUp.rectTransform.sizeDelta -= new Vector2(streakrewardCountdown, 0) * Time.deltaTime;
+        }
+
+        
     }
 
     public void AddToScore(AccuracyEnum accuracyEnum, DirectionEnum directionEnum)
@@ -74,7 +85,11 @@ public class ScoreManager : MonoBehaviour
             }
             addedScore *= scoreMultiplier;
             score += addedScore;
-            currentStreak += 1;
+            if (!streakRewardInProgress)
+            {
+                currentStreak += 1;
+            }
+            
             addedScore = 0;
         }
         else if (accuracyEnum == AccuracyEnum.Miss)
@@ -98,9 +113,13 @@ public class ScoreManager : MonoBehaviour
     public IEnumerator EnablePlaceHolderMode()
     {
         Debug.Log("Start streak reward");
+        powerUp.rectTransform.sizeDelta = new Vector2(500, 100);
         streakRewardInProgress = true;
+        streakBarProgression = 0;
+        currentStreak = 0;
         yield return new WaitForSeconds(15);
         streakRewardInProgress = false;
+        Debug.Log("end streakReward");
 
     }
 
@@ -110,5 +129,10 @@ public class ScoreManager : MonoBehaviour
         if (directionEnum == DirectionEnum.Left) { noteSpawner.leftEmitter.startColor = effectcolor; plateTextL.gameObject.SetActive(true); plateTextL.text = text; }
         if (directionEnum == DirectionEnum.Right) { noteSpawner.rightEmitter.startColor = effectcolor; plateTextR.gameObject.SetActive(true); plateTextR.text = text; }
         if (directionEnum == DirectionEnum.Down) { noteSpawner.downEmitter.startColor = effectcolor; plateTextD.gameObject.SetActive(true); plateTextD.text = text; }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        streakRewardInProgress = false;
     }
 }
