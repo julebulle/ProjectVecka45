@@ -17,7 +17,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text plateTextU;
     [SerializeField] TMP_Text plateTextD;
     int currentStreak;
-    int bestStreak;
+    int realCurrentStreak;
+    public int bestStreak;
     [SerializeField]int maxStreak;
     [SerializeField]int streakBarProgression;
     public TMP_Text streakText;
@@ -64,9 +65,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (accuracyEnum != AccuracyEnum.Miss)
         {
-            if(currentStreak > bestStreak)
+            if(realCurrentStreak > bestStreak)
             {
-                bestStreak = currentStreak;
+                bestStreak = realCurrentStreak;
             }
             if (accuracyEnum == AccuracyEnum.Nice)
             {
@@ -85,6 +86,7 @@ public class ScoreManager : MonoBehaviour
             }
             addedScore *= scoreMultiplier;
             score += addedScore;
+            realCurrentStreak += 1;
             if (!streakRewardInProgress)
             {
                 currentStreak += 1;
@@ -96,6 +98,7 @@ public class ScoreManager : MonoBehaviour
         {
             SetEffects(directionEnum, Color.black, "Miss!");
             currentStreak = 0;
+            realCurrentStreak = 0;
         }
 
         
@@ -107,7 +110,6 @@ public class ScoreManager : MonoBehaviour
         {
             StartCoroutine(EnablePlaceHolderMode());
         }
-        
     }
 
     public IEnumerator EnablePlaceHolderMode()
