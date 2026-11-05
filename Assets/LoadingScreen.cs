@@ -17,7 +17,7 @@ public class LoadingScreen : MonoBehaviour
         switchSceneTimer += Time.deltaTime;
         if (switchSceneTimer > 5)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(MenuManager.levelToOpen);
         }
     }
 }

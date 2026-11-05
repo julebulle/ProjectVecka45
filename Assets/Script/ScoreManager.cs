@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text plateTextL;
     [SerializeField] TMP_Text plateTextU;
     [SerializeField] TMP_Text plateTextD;
+    [SerializeField] GameObject background;
     int currentStreak;
     int realCurrentStreak;
     public int bestStreak;
@@ -119,7 +120,9 @@ public class ScoreManager : MonoBehaviour
         streakRewardInProgress = true;
         streakBarProgression = 0;
         currentStreak = 0;
+        background.SetActive(false);
         yield return new WaitForSeconds(15);
+        background.SetActive(true);
         streakRewardInProgress = false;
         Debug.Log("end streakReward");
 

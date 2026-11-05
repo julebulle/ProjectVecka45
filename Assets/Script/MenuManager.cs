@@ -5,6 +5,7 @@ public class MenuManager : MonoBehaviour
 {
 
     public GameObject currentMenu;
+    public static int levelToOpen;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,7 @@ public class MenuManager : MonoBehaviour
 
     public void EnterLevel(int LevelIndex)
     {
-        SceneManager.LoadScene(LevelIndex);
+        SceneManager.LoadScene(1);
+        levelToOpen = LevelIndex + 2;
     }
 }

@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: aa4b98ce1dfdcb840b214f6dc222c8a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5469167201077261762
+    second: Combo_text_0
+  - first:
+      213: -8826316406868830540
+    second: Combo_text_1
+  - first:
+      213: -581137817508508141
+    second: Combo_text_2
+  - first:
+      213: 8355289188276441091
+    second: Combo_text_3
+  - first:
+      213: 347239299745980505
+    second: Combo_text_4
+  - first:
+      213: -6131752450131088594
+    second: Combo_text_5
+  - first:
+      213: -5549892705385413100
+    second: Combo_text_6
+  - first:
+      213: -5941677563278577544
+    second: Combo_text_7
+  - first:
+      213: 6356240908761810510
+    second: Combo_text_8
+  - first:
+      213: -497105864798561557
+    second: Combo_text_9
+  - first:
+      213: 1367618384460814291
+    second: Combo_text_10
+  - first:
+      213: -390197306807347990
+    second: Combo_text_11
+  - first:
+      213: -4386857572598610737
+    second: Combo_text_12
+  - first:
+      213: -2672765135290484683
+    second: Combo_text_13
+  - first:
+      213: -3803082402689673527
+    second: Combo_text_14
+  - first:
+      213: 2016741768122766231
+    second: Combo_text_15
+  - first:
+      213: -6043419525248878854
+    second: Combo_text_16
+  - first:
+      213: -3223089547372294361
+    second: Combo_text_17
+  - first:
+      213: 299866624996796286
+    second: Combo_text_18
+  - first:
+      213: -6948013465802468971
+    second: Combo_text_19
+  - first:
+      213: -5602023339842364346
+    second: Combo_text_20
+  - first:
+      213: -8204266425481189712
+    second: Combo_text_21
+  - first:
+      213: 6937855898268800376
+    second: Combo_text_22
+  - first:
+      213: -6299331040446170376
+    second: Combo_text_23
+  - first:
+      213: -8589418542015961488
+    second: Combo_text_24
+  - first:
+      213: -6474158629737057125
+    second: Combo_text_25
+  - first:
+      213: 879137874387992157
+    second: Combo_text_26
+  - first:
+      213: -7976262544590857568
+    second: Combo_text_27
+  - first:
+      213: 2202935348170845363
+    second: Combo_text_28
+  - first:
+      213: 9010014214481699160
+    second: Combo_text_29
+  - first:
+      213: 6976238283529368692
+    second: Combo_text_30
+  - first:
+      213: -1552512890982573555
+    second: Combo_text_31
+  - first:
+      213: -5179197826667805741
+    second: Combo_text_32
+  - first:
+      213: -8141997881643594514
+    second: Combo_text_33
+  - first:
+      213: 4083443604186070070
+    second: Combo_text_34
+  - first:
+      213: 4974217861496189662
+    second: Combo_text_35
+  - first:
+      213: -7407770632455627765
+    second: Combo_text_36
+  - first:
+      213: 414387541129621406
+    second: Combo_text_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Combo_text_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1270
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a8292586d9914b0800000000000000
+      internalID: -5469167201077261762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e3840c71bc207eb43808be26b54af3dd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Combo_text_0: -5469167201077261762
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

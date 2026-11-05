@@ -3,20 +3,31 @@ using UnityEngine.Timeline;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 public class NoteSpawner : MonoBehaviour
 {
     public TimelineAsset timeline;
+    public SpriteRenderer girlInTheMiddle;
     public GameObject notePrefab;
+    [Header("Girl in the middle poses")]
+    public Sprite upPose;
+    public Sprite downPose;
+    public Sprite leftPose;
+    public Sprite rightPose;
+
+    [Header("Lists")]
     public List<Note> upList;
     public List<Note> downList;
     public List<Note> leftList;
     public List<Note> rightList;
 
+    [Header("Particles")]
     [SerializeField] public ParticleSystem upEmitter;
     [SerializeField] public ParticleSystem leftEmitter;
     [SerializeField] public ParticleSystem rightEmitter;
     [SerializeField] public ParticleSystem downEmitter;
 
+    [Header("Inputs")]
     public InputActionReference upButton;
     public InputActionReference downButton;
     public InputActionReference leftButton;
@@ -108,18 +119,22 @@ public class NoteSpawner : MonoBehaviour
         if (index == 0)
         {
             upList.Add(spawnedNote.GetComponent<Note>());
+            girlInTheMiddle.sprite = upPose;
         }
         else if (index == 1)
         {
             downList.Add(spawnedNote.GetComponent<Note>());
+            girlInTheMiddle.sprite = downPose;
         }
         else if (index == 2)
         {
             leftList.Add(spawnedNote.GetComponent<Note>());
+            girlInTheMiddle.sprite =leftPose;
         }
         else if (index == 3)
         {
             rightList.Add(spawnedNote.GetComponent<Note>());
+            girlInTheMiddle.sprite = rightPose;
         }
         #endregion
     }
