@@ -1,6 +1,7 @@
 using NUnit.Framework.Constraints;
 using System.Collections;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Sprite goodSalmon;
     [SerializeField] Sprite superSalmon;
     [SerializeField] Sprite perfectSalmon;
+    [SerializeField] TMP_Text timesFive;
+    Camera camera;
     int currentStreak;
     int realCurrentStreak;
     public int bestStreak;
@@ -47,6 +50,7 @@ public class ScoreManager : MonoBehaviour
         scoreMultiplier = 1;
         currentStreak = 0;
         noteSpawner = FindAnyObjectByType<NoteSpawner>();
+        camera = FindAnyObjectByType<Camera>();
     }
 
     // Update is called once per frame
@@ -128,13 +132,16 @@ public class ScoreManager : MonoBehaviour
     {
         Debug.Log("Start streak reward");
         powerUp.rectTransform.sizeDelta = new Vector2(500, 100);
+        //camera.transform.rotation = new ;
         scoreMultiplier = 5;
+        timesFive.text = "x5";
         streakRewardInProgress = true;
         streakBarProgression = 0;
         currentStreak = 0;
         background.SetActive(false);
         yield return new WaitForSeconds(15);
         background.SetActive(true);
+        timesFive.text = null;
         streakRewardInProgress = false;
         scoreMultiplier = 1;
         Debug.Log("end streakReward");
