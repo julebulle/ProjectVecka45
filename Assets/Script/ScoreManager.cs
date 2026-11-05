@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -17,6 +18,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text plateTextU;
     [SerializeField] TMP_Text plateTextD;
     [SerializeField] GameObject background;
+    [SerializeField] GameObject salmon;
+    [SerializeField] Sprite goodSalmon;
+    [SerializeField] Sprite superSalmon;
+    [SerializeField] Sprite perfectSalmon;
     int currentStreak;
     int realCurrentStreak;
     public int bestStreak;
@@ -72,18 +77,21 @@ public class ScoreManager : MonoBehaviour
             }
             if (accuracyEnum == AccuracyEnum.Nice)
             {
-                SetEffects(directionEnum, Color.green, "Nice!");
+                SetEffects(directionEnum, Color.green, "Good!");
                 addedScore += 100;
+                salmon.GetComponent<SpriteRenderer>().sprite = goodSalmon;
             }
             if (accuracyEnum == AccuracyEnum.Cool)
             {
-                SetEffects(directionEnum, Color.cyan, "Cool!");
+                SetEffects(directionEnum, Color.cyan, "Super!");
                 addedScore += 200;
+                salmon.GetComponent<SpriteRenderer>().sprite = superSalmon;
             }
             if (accuracyEnum == AccuracyEnum.Perfect)
             {
                 SetEffects(directionEnum, Color.magenta, "Perfect!");
                 addedScore += 500;
+                salmon.GetComponent<SpriteRenderer>().sprite = perfectSalmon;
             }
             addedScore *= scoreMultiplier;
             score += addedScore;
@@ -100,6 +108,7 @@ public class ScoreManager : MonoBehaviour
             SetEffects(directionEnum, Color.black, "Miss!");
             currentStreak = 0;
             realCurrentStreak = 0;
+            salmon.GetComponent<SpriteRenderer>().sprite = null;
         }
 
         
