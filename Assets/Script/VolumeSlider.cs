@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-
+    static float currentVolume;
     [SerializeField] public AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +21,8 @@ public class VolumeSlider : MonoBehaviour
 
     public void UpdateVolume()
     {
-        audioSource.volume = GetComponent<Slider>().value;
+        currentVolume = GetComponent<Slider>().value;
+        audioSource.volume = currentVolume;
+        //audioSource.volume = GetComponent<Slider>().value;
     }
 }

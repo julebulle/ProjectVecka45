@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7639462174256222114}
   - component: {fileID: 781412729694057186}
-  - component: {fileID: 2034312684429436641}
+  - component: {fileID: -8383358314399033371}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -198,12 +198,12 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2034312684429436641}
-        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Audio, Assembly-CSharp
         m_MethodName: UpdateVolume
         m_Mode: 1
         m_Arguments:
@@ -214,7 +214,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2034312684429436641
+--- !u!114 &-8383358314399033371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
