@@ -17,6 +17,6 @@ public class FinalScore : MonoBehaviour
     void Update()
     {
         winText.text = "Final Score: " + scoreManager.score.ToString();
-        bestComboText.text = new string("Lingest combo was: " + scoreManager.bestStreak.ToString());
+        bestComboText.text = new string("Longest combo was: " + scoreManager.bestStreak.ToString());
     }
 }
