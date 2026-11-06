@@ -10,10 +10,13 @@ public class FinalScore : MonoBehaviour
     [SerializeField] TMP_Text precentage;
     [SerializeField] TMP_Text rankText;
     [SerializeField] GameObject mainMenuButton;
+    [SerializeField] GameObject teto;
+    //[SerializeField] GameObject playerNameobj;
     ScoreManager scoreManager;
-    [SerializeField]ScoreInfo scoreToPublish;
-    public string playerName;
-    public TMP_Text playerInput;
+    //[SerializeField]ScoreInfo scoreToPublish;
+    //public string playerName;
+    //public TMP_Text playerInput;
+    //public string songName;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,6 +74,8 @@ public class FinalScore : MonoBehaviour
         precentage.gameObject.SetActive(false);
         rankText.gameObject.SetActive(false);
         mainMenuButton.SetActive(false);
+        teto.SetActive(false);
+        
 
         winText.text = "Final Score: " + scoreManager.score.ToString();
         bestComboText.text = new string("Longest combo was: " + scoreManager.bestStreak.ToString());
@@ -87,28 +92,19 @@ public class FinalScore : MonoBehaviour
         rankText.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(1);
         mainMenuButton.SetActive(true);
+        yield return new WaitForSecondsRealtime(1);
+        teto.SetActive(true);
+
+
 
     }
 
-    public void PublishScoreToLeaderBoard()
+    /*public void PublishScoreToLeaderBoard()
     {
         scoreToPublish.playerName = playerInput.text;
         scoreToPublish.longeststreak = scoreManager.bestStreak;
-        scoreToPublish.precentage = GetPrecantage();
+        scoreToPublish.song = songName;
         scoreToPublish.Score = Mathf.FloorToInt(scoreManager.score);
-        if(LeaderBoardLogic.contenders[0] != null)
-        {
-            if (LeaderBoardLogic.contenders[0].Score < scoreToPublish.Score)
-            {
-                LeaderBoardLogic.contenders[0] = scoreToPublish;
-            }
-        }
-        else
-        {
-            LeaderBoardLogic.contenders[0] = scoreToPublish;
-        }
-        
-
-       
-    }
+        LeaderBoardLogic.UpdateLeaderBoard(scoreToPublish);
+    }*/
 }
