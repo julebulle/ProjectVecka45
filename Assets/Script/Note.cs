@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.U2D.Animation;
 public class Note : MonoBehaviour
 {
     [SerializeField]List<DirectionEnum> directions;

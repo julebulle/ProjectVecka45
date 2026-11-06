@@ -6,6 +6,6 @@ public class ScoreInfo
 {
     public string playerName;
     public int Score;
-    public int precentage;
+    public string song;
     public int longeststreak;
 }
