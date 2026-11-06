@@ -104,7 +104,7 @@ MonoBehaviour:
   direction: 0
   placeholderSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   targetPosition: {fileID: 0}
-  speed: 10
+  speed: 9.5
   sprites:
   - {fileID: -3201335710889687837, guid: 61c295b5b5a24ea4c967f537a183008d, type: 3}
   - {fileID: -4432714776453720695, guid: 338140666399aef40a4ac99edaf3af2b, type: 3}
