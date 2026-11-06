@@ -414,6 +414,11 @@ MonoBehaviour:
   precentage: {fileID: 1151209276}
   rankText: {fileID: 663679643}
   mainMenuButton: {fileID: 1393411235}
+  scoreToPublish:
+    playerName: player 1
+    Score: 20000
+    precentage: 80
+    longeststreak: 12
 --- !u!114 &262638754
 MonoBehaviour:
   m_ObjectHideFlags: 0
