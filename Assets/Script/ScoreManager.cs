@@ -1,12 +1,7 @@
-using NUnit.Framework.Constraints;
+
 using System.Collections;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
