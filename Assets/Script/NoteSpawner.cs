@@ -10,7 +10,7 @@ public class NoteSpawner : MonoBehaviour
     public SpriteRenderer girlInTheMiddle;
     public GameObject notePrefab;
     [Header("Girl in the middle poses")]
-    [SerializeField] Animator sticks;
+  
 
     public Sprite upPose;
     public Sprite downPose;
@@ -39,7 +39,7 @@ public class NoteSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sticks.gameObject.SetActive(false);
+
     }
     public  bool CheckInputDirection(DirectionEnum Direction)
     {
@@ -153,8 +153,6 @@ public class NoteSpawner : MonoBehaviour
         }
         else if(direction == DirectionEnum.Down)
         {
-            sticks.gameObject.SetActive(true);
-            sticks.SetTrigger("IsClicked");
             downEmitter.Play();
             downList.RemoveAt(0);
         }
