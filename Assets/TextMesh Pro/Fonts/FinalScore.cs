@@ -10,6 +10,7 @@ public class FinalScore : MonoBehaviour
     [SerializeField] TMP_Text rankText;
     [SerializeField] GameObject mainMenuButton;
     ScoreManager scoreManager;
+    [SerializeField]ScoreInfo scoreToPublish;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,6 +85,14 @@ public class FinalScore : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         mainMenuButton.SetActive(true);
 
+        PublishScoreToLeaderBoard();
+    }
 
+    public void PublishScoreToLeaderBoard()
+    {
+        scoreToPublish.longeststreak = scoreManager.bestStreak;
+        scoreToPublish.precentage = GetPrecantage();
+        scoreToPublish.Score = scoreManager.score;
+        LeaderBoardLogic.contenders[LeaderBoardLogic.contenders.GetLength(0) - 1] = scoreToPublish;
     }
 }
