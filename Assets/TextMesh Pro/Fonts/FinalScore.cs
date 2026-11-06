@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FinalScore : MonoBehaviour
@@ -11,6 +12,8 @@ public class FinalScore : MonoBehaviour
     [SerializeField] GameObject mainMenuButton;
     ScoreManager scoreManager;
     [SerializeField]ScoreInfo scoreToPublish;
+    public string playerName;
+    public TMP_Text playerInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -85,14 +88,27 @@ public class FinalScore : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         mainMenuButton.SetActive(true);
 
-        PublishScoreToLeaderBoard();
     }
 
     public void PublishScoreToLeaderBoard()
     {
+        scoreToPublish.playerName = playerInput.text;
         scoreToPublish.longeststreak = scoreManager.bestStreak;
         scoreToPublish.precentage = GetPrecantage();
-        scoreToPublish.Score = scoreManager.score;
-        LeaderBoardLogic.contenders[LeaderBoardLogic.contenders.GetLength(0) - 1] = scoreToPublish;
+        scoreToPublish.Score = Mathf.FloorToInt(scoreManager.score);
+        if(LeaderBoardLogic.contenders[0] != null)
+        {
+            if (LeaderBoardLogic.contenders[0].Score < scoreToPublish.Score)
+            {
+                LeaderBoardLogic.contenders[0] = scoreToPublish;
+            }
+        }
+        else
+        {
+            LeaderBoardLogic.contenders[0] = scoreToPublish;
+        }
+        
+
+       
     }
 }
