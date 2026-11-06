@@ -6093,7 +6093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &690129010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6521,6 +6521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeline: {fileID: 11400000, guid: b654c9b0e9db21d4995798437b8e42b4, type: 2}
   resultScreen: {fileID: 0}
+  music: {fileID: 0}
 --- !u!82 &1046037096
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22269,6 +22270,11 @@ MonoBehaviour:
   precentage: {fileID: 1118567262}
   rankText: {fileID: 0}
   mainMenuButton: {fileID: 0}
+  scoreToPublish:
+    playerName: 
+    Score: 0
+    precentage: 0
+    longeststreak: 0
 --- !u!1 &1493456460
 GameObject:
   m_ObjectHideFlags: 0

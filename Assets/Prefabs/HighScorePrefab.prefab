@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3469933889787079807}
   - component: {fileID: 103668923920213602}
+  - component: {fileID: 5438935174369583351}
   m_Layer: 5
   m_Name: HighScorePrefab
   m_TagString: Untagged
@@ -67,6 +68,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5438935174369583351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075142766297828249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2548a98b3f659f14b955fc54ddbd8ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 4091596402098336738}
+  score: {fileID: 5957353489478826560}
+  precentage: {fileID: 0}
+  streak: {fileID: 2226623740344587862}
 --- !u!1 &2243324711244653959
 GameObject:
   m_ObjectHideFlags: 0
