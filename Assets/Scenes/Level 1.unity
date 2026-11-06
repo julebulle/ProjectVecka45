@@ -5577,6 +5577,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: b654c9b0e9db21d4995798437b8e42b4, type: 2}
   girlInTheMiddle: {fileID: 2008689831}
   notePrefab: {fileID: 5284180459892253086, guid: 196161455f558b740972b23c9994e2dd, type: 3}
+  sticks: {fileID: 0}
   upPose: {fileID: 1389764231988281765, guid: b625ff3405b539a4d8e32715b0fc5a7e, type: 3}
   downPose: {fileID: -7273538943741641063, guid: fd89755b36798e24da7dd6b0ca6f12f5, type: 3}
   leftPose: {fileID: -5685745167022979344, guid: 0806375d027b96044a964658de8d0608, type: 3}
@@ -22275,6 +22276,8 @@ MonoBehaviour:
     Score: 0
     precentage: 0
     longeststreak: 0
+  playerName: 
+  playerInput: {fileID: 0}
 --- !u!1 &1493456460
 GameObject:
   m_ObjectHideFlags: 0

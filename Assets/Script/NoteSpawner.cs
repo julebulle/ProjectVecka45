@@ -10,6 +10,8 @@ public class NoteSpawner : MonoBehaviour
     public SpriteRenderer girlInTheMiddle;
     public GameObject notePrefab;
     [Header("Girl in the middle poses")]
+  
+
     public Sprite upPose;
     public Sprite downPose;
     public Sprite leftPose;
@@ -26,6 +28,7 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] public ParticleSystem leftEmitter;
     [SerializeField] public ParticleSystem rightEmitter;
     [SerializeField] public ParticleSystem downEmitter;
+
 
     [Header("Inputs")]
     public InputActionReference upButton;
@@ -73,7 +76,7 @@ public class NoteSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         //When you 
         #region
         if (CheckInputDirection(DirectionEnum.Up))
