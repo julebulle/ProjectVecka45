@@ -4,6 +4,7 @@ using UnityEngine.Timeline;
 public class EndScreen : MonoBehaviour
 {
     public TimelineAsset timeline;
+    public FinalScore resultScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +21,7 @@ public class EndScreen : MonoBehaviour
     public void EndLevel()
     {
         transform.position = new Vector3(960, 540, 0);
+        StartCoroutine(resultScreen.AnimateResults());
         Time.timeScale = 0;
     }
 }
